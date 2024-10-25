@@ -1,29 +1,33 @@
 import { Injectable } from '@nestjs/common';
-import { HeroDTO } from './dto/hero.dto';
+import { HeroRequestDto, HeroResponseDto } from './dto/hero.dto';
+import { InjectModel } from '@nestjs/mongoose';
+import { Hero } from './schemas/heroes.schema';
+import { Model } from 'mongoose';
+import { plainToClass } from 'class-transformer';
 
 @Injectable()
 export class HeroesService {
   heroes = []
+  constructor(@InjectModel(Hero.name) private heroModel: Model<Hero>) {}
 
-  getAll() {
-    return this.heroes
+  async getAll(): Promise<HeroResponseDto[]> {
+    const users = await this.heroModel.find().exec()
+    return plainToClass(HeroResponseDto, users)
   }
 
-  insertOne(hero: HeroDTO) {
-    const newHero = {...hero, id: Date.now() + Math.floor(Math.random() * 10000)}
-    this.heroes.push(newHero)
-    return newHero
+  async insertOne(hero: HeroRequestDto): Promise<HeroResponseDto> {
+    const newHero = new this.heroModel(hero)
+    const result = await newHero.save()
+    return plainToClass(HeroResponseDto, result)
   }
 
-  updateOne(id: number, hero: HeroDTO) {
-    const index = this.heroes.findIndex(obj => obj.id === id)
-    this.heroes[index] = {...hero, id: id }
-    return this.heroes[index]
+  async updateOne(id: string, hero: HeroRequestDto) {
+    const result = await this.heroModel.findByIdAndUpdate(id, hero, { returnDocument: 'after'})
+    return plainToClass(HeroResponseDto, result)
   }
 
-  deleteOne(id: number) {
-    const index = this.heroes.findIndex(obj => obj.id === id)
-    this.heroes.splice(index)
-    return
+  async deleteOne(id: string) {
+    const result = await this.heroModel.findByIdAndDelete(id)
+    return plainToClass(HeroResponseDto, result)
   }
 }
