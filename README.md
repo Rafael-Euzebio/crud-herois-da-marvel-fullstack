@@ -19,22 +19,22 @@ Este desafio faz parte do processo seletivo do projeto Frontend Fusion para a va
 
 #### Rotas para CRUD de Heróis:
 
-- [ ] **Criar Herói**
+- [x] **Criar Herói**
   - **Endpoint:** `/heroes`
   - **Método:** POST
   - **Descrição:** Cria um novo herói. Os dados do herói (nome, habilidades, e origem) devem ser enviados no corpo da requisição. O cadastro deve ser predefinido a heróis que já existem no universo Marvel.
 
-- [ ] **Listar Heróis**
+- [x] **Listar Heróis**
   - **Endpoint:** `/heroes`
   - **Método:** GET
   - **Descrição:** Retorna a lista de todos os heróis.
 
-- [ ] **Atualizar Herói**
+- [x] **Atualizar Herói**
   - **Endpoint:** `/heroes/:id`
   - **Método:** PUT
   - **Descrição:** Atualiza um herói existente com base no ID. Os novos dados do herói (nome, habilidades, e origem) devem ser enviados no corpo da requisição.
 
-- [ ] **Excluir Herói**
+- [x] **Excluir Herói**
   - **Endpoint:** `/heroes/:id`
   - **Método:** DELETE
   - **Descrição:** Exclui um herói existente com base no ID.
