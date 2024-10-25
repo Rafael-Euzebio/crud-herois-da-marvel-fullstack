@@ -1,28 +1,29 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
-import { HeroDTO } from './dto/hero.dto';
+import { HeroRequestDto, HeroResponseDto } from './dto/hero.dto';
 import { HeroesService } from './heroes.service';
+import { ParseObjectId } from './pipes/parseObjectId.pipe';
 
 @Controller('heroes')
 export class HeroesController {
   constructor(private heroesService: HeroesService) {}
 
   @Get()
-  getAll() {
-    return this.heroesService.getAll()
+  async getAll() {
+    return await this.heroesService.getAll()
   }
 
   @Post()
-  insertOne(@Body() body: HeroDTO) {
-    return this.heroesService.insertOne(body)
+  async insertOne(@Body() body: HeroRequestDto): Promise<HeroResponseDto> {
+    return await this.heroesService.insertOne(body)
   }
 
   @Put(':id')
-  updateOne(@Param('id', ParseIntPipe) id: number, @Body() body: HeroDTO) {
-    return this.heroesService.updateOne(id, body)
+  async updateOne(@Param('id', ParseObjectId) id: string, @Body() body: HeroRequestDto): Promise<HeroResponseDto> {
+    return await this.heroesService.updateOne(id, body)
   }
 
   @Delete(':id')
-  deleteOne(@Param('id', ParseIntPipe) id: number) {
-    return this.heroesService.deleteOne(id)
+  async deleteOne(@Param('id', ParseObjectId) id: string): Promise<HeroResponseDto> {
+    return await this.heroesService.deleteOne(id)
   }
 }
