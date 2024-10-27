@@ -1,3 +1,4 @@
+import HeroForm from "./components/HeroForm"
 
 function App() {
 
@@ -5,8 +6,8 @@ function App() {
   return (
     <>
       <main>
-        <span>Bem vindo ao Desafio Fullstack </span>
-          </main>
+        <HeroForm />
+      </main>
     </>
   )
 }
