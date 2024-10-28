@@ -2,13 +2,12 @@ import HeroForm from "./components/HeroForm"
 
 function App() {
 
-
   return (
-    <>
-      <main>
+    <div className="bg-marvel-blue-gray flex">
+      <main className="w-full p-5">
         <HeroForm />
       </main>
-    </>
+    </div>
   )
 }
 
