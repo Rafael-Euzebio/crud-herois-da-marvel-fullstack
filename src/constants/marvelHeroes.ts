@@ -4,11 +4,11 @@ const marvelHeroes: HeroInterface[] = [
   {
     name: "Spider-Man",
     abilities: [
-      "Agilidade aprimorada",
-      "Força aprimorada",
-      "Escalar paredes",
-      "Sentido aranha",
-      "Lançamento de teia",
+      "Agilidade Aprimorada",
+      "Força Aprimorada",
+      "Escalar Paredes",
+      "Sentido Aranha",
+      "Disparar Teia",
     ],
     origins: "",
   },
@@ -17,26 +17,26 @@ const marvelHeroes: HeroInterface[] = [
     abilities: [
       "Genialidade",
       "Voo",
-      "Rajadas repulsoras",
+      "Rajadas Repulsoras",
     ],
     origins: "",
   },
   {
     name: "Capitão América",
     abilities: [
-      "Força aprimorada",
-      "Agilidade aprimorada",
-      "Artista marcial especialista",
-      "Escudo de vibranium",
-      "Gênio tático"
+      "Força Aprimorada",
+      "Agilidade Aprimorada",
+      "Artes Marciais",
+      "Escudo de Vibranium",
+      "Genialidade Tática"
     ],
     origins: "",
   },
   {
     name: "Thor",
     abilities: [
-      "Força aprimorada",
-      "Geração de eletricidade",
+      "Força Aprimorada",
+      "Controle da Eletricidade",
       "Voo",
       "Encantamento",
       "Longevidade"
@@ -46,7 +46,7 @@ const marvelHeroes: HeroInterface[] = [
   {
     name: "Hulk",
     abilities: [
-      "Força aprimorada",
+      "Força Sobre-Humana",
       "Genialidade",
       "Cura Regenerativa",
       "Durabilidade Sobre-Humana",
@@ -82,7 +82,7 @@ const marvelHeroes: HeroInterface[] = [
       "Agilidade Aprimorada",
       "Traje de Vibranium",
       "Especialista Tático",
-      "Mestre em Lança",
+      "Mestre em Armas Brancas",
     ],
     origins: "",
   },
@@ -95,7 +95,7 @@ for (const hero of marvelHeroes) {
   abilities.forEach(ability => abilitiesSet.add(ability));
 }
 
-const abilities: string[] = Array.from(abilitiesSet)
+const abilities: string[] = Array.from(abilitiesSet).sort()
 
 export { abilities }
 
