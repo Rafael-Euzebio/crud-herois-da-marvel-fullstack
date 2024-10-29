@@ -1,6 +1,6 @@
 # Changelog
 ## 2024-10-28
-### [PR-6](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/6)
+### [PR-7](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/7)
 #### Added
 - feat: add styles to `HeroForm` ([#6d5925e](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/6d5925e))
 - feat: add `HeroForm` component ([#85df900](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/85df900))
