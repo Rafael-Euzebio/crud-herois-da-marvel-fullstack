@@ -1,4 +1,11 @@
 # Changelog
+## 2024-10-28
+### [PR-6](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/6)
+#### Added
+- feat: add styles to `HeroForm` ([#6d5925e](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/6d5925e))
+- feat: add `HeroForm` component ([#85df900](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/85df900))
+- chore: fix security vulnerabilities through `npm audit fix` ([#d819cf1](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/d819cf1))
+
 ## 2024-10-25
 ### [PR-5](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/5)
 #### Added
