@@ -1,4 +1,4 @@
-import { ArrayMaxSize, ArrayMinSize, ArrayNotEmpty, IsDefined, IsNotEmpty, MinLength } from "class-validator";
+import { ArrayMaxSize, ArrayMinSize, ArrayNotEmpty, IsNotEmpty, MinLength } from "class-validator";
 import HeroInterface from "../interfaces/hero.interface";
 
 export default class HeroSchema implements HeroInterface {
