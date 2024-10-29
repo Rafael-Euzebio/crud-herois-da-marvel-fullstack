@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 import { useForm } from 'react-hook-form'
 import HeroInterface from '../interfaces/hero.interface'
 import { classValidatorResolver } from '@hookform/resolvers/class-validator'
