@@ -5,12 +5,15 @@ import { HeroesModule } from './heroes/heroes.module';
 import { MongooseModule } from '@nestjs/mongoose'
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import databaseConfig from './config/database.config';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 
 @Module({
-  controllers: [AppController],
-  providers: [AppService],
   imports: [
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'client')
+    }),
     ConfigModule.forRoot({ 
       load: [databaseConfig],
       isGlobal: true
