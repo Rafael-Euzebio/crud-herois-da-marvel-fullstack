@@ -9,14 +9,16 @@ export default {
   ],
   theme: {
     colors: {
-      "marvel-red": "#e62429",
-      "marvel-dark-red": "#9f0013",
-      "marvel-blue-gray": '#0e141a',
-      "marvel-white": "#fdfdfd",
+      "marvel-accent-red": "#e62429",
+      "marvel-accent-red-hover": "#9f0013",
+      "marvel-bg": '#202020',
+      "marvel-input": '#1E1E1E',
+      "marvel-widget-bg": '#3A3A3A',
+      "marvel-base": "#fdfdfd",
+      "marvel-error": "#fece00",
       ...colors
     },
     extend: {},
   },
   plugins: [slant.handler],
 }
-

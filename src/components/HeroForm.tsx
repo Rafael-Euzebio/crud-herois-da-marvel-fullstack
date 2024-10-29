@@ -18,17 +18,15 @@ const HeroForm = () => {
     axios.post('/api/heroes', data)
   })
 
-  const formClasses = 'lg:w-3/5 p-8 bg-marvel-white border rounded-lg'
-  const labelClasses = 'block text-base font-bold'
-  const inputClasses = 'w-full bg-gray-200 rounded appearance-none p-2 mb-1 leading-tight focus:outline-none focus:border-b-marvel-red focus:border-b-2'
-  const fieldsetClasses = 'flex flex-wrap border border-gray-600 p-2 mb-10 mt-10'
+  const formClasses = 'lg:w-3/5 p-8 bg-marvel-widget-bg rounded-lg'
+  const labelClasses = 'font-bold text-marvel-base'
+  const inputClasses = 'w-full bg-marvel-input placeholder-gray-300 text-marvel-base rounded appearance-none p-2 mb-1 leading-tight focus:outline-none focus:border-b-marvel-accent-red focus:border-b-2'
+  const fieldsetClasses = `flex flex-wrap border border-dashed border-gray-500 p-2 mb-10 mt-10`
   const abilityWrapperClasses = 'w-full basis-full sm:basis-1/2 p-1'
-  const checkboxClasses = 'accent-marvel-red mr-2'
-  const buttonWrapperClasses = 'bg-marvel-red w-40 m-auto mt-10 -slant-x-[20deg] transition-all duration-500 ease-in-out hover:bg-marvel-dark-red hover:w-52 sm:hover:w-64'
-  const buttonClasses = 'w-full p-3 text-marvel-white font-bold'
-  const errorClasses = 'font-semibold pt-5 text-marvel-dark-red'
-
-  
+  const checkboxClasses = 'accent-marvel-accent-red mr-2'
+  const buttonWrapperClasses = 'bg-marvel-accent-red w-40 m-auto mt-10 -slant-x-[20deg] transition-all duration-500 ease-in-out hover:bg-marvel-accent-red-hover hover:w-52 sm:hover:w-64'
+  const buttonClasses = 'w-full p-3 text-marvel-base font-bold'
+  const errorClasses = 'font-semibold pt-5 text-marvel-error'
 
 
   return (
@@ -57,11 +55,11 @@ const HeroForm = () => {
               value={ability}
               {...register("abilities")}
             />
-            <label className="" htmlFor={ability}>{ability}</label>
+            <label className={labelClasses} htmlFor={ability}>{ability}</label>
           </div>
           )
         } )}
-        <span className={errorClasses}>{errors.abilities?.message}</span>
+          <span className={errorClasses}>{errors.abilities?.message}</span>
       </fieldset>
 
       <label className={labelClasses}>
@@ -73,6 +71,7 @@ const HeroForm = () => {
         placeholder="Origem"
       />
       <span className={errorClasses}>{errors.origins?.message}</span>
+
       <div className={buttonWrapperClasses}>
         <button type="submit" className={buttonClasses}>Criar Herói</button>
       </div>
