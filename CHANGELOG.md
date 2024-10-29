@@ -1,4 +1,9 @@
 # Changelog
+## 2024-10-29
+### [PR-8](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/8)
+#### Added
+feat: re-style form with a dark theme ([#4f67b2c](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/4f67b2c)) 
+
 ## 2024-10-28
 ### [PR-7](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/7)
 #### Added
