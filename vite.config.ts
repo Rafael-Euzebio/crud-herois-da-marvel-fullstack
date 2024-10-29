@@ -25,6 +25,9 @@ export default defineConfig({
     postcss: {
       plugins: [tailwindcss()],
     },
+  },
+  build: {
+    outDir: './backend/client',
+    emptyOutDir: true
   }
-  ,
 })
