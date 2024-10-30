@@ -4,6 +4,7 @@ import { useSelector } from "react-redux"
 import { RootState } from '../store'
 import { useDispatch } from "react-redux"
 import { add } from "../features/heroes/heroesSlice"
+import HeroItem from "./HeroItem"
 
 const HeroList = () => {
   const heroes = useSelector(( state: RootState) => state.heroes.list)
@@ -16,7 +17,15 @@ const HeroList = () => {
     })()
   }, [])
 
+  const listClasses = 'flex-1 flex-column m-2 mt-0'
   return (
+    <ul className={listClasses}>
+      {heroes.map((hero) => {
+        return(
+          <HeroItem hero={hero}/>
+        )
+      })}
+    </ul>
   )
 }
 
