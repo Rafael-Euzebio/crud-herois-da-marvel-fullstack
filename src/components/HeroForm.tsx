@@ -1,18 +1,17 @@
 import { ReactNode } from 'react'
 import { useForm } from 'react-hook-form'
-import HeroInterface from '../interfaces/hero.interface'
 import { classValidatorResolver } from '@hookform/resolvers/class-validator'
-import HeroSchema from '../schemas/hero.schema'
 import { abilities } from '../constants/marvelHeroes'
+import { HeroRequestDto } from '../dto/HeroDto'
 import axios from 'axios'
 
 const HeroForm = () => {
-  const resolver = classValidatorResolver(HeroSchema)
+  const resolver = classValidatorResolver(HeroRequestDto)
   const {
     register, 
     handleSubmit, 
     formState: { errors }
-  } = useForm<HeroInterface>({ resolver })
+  } = useForm<HeroRequestDto>({ resolver })
 
   const onSubmit = handleSubmit((data) => {
     axios.post('/api/heroes', data)
