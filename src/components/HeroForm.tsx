@@ -8,9 +8,9 @@ import { cancelEdit } from '../features/form/formSlice'
 import { RootState } from '../store'
 
 import apiFetcher from '../utils/apiFetcher'
-import Button from './Button'
 import { HeroDto } from '../dto/HeroDto'
 import AbilitiesFilter from './AbilitiesFilter'
+import FormButtons from './FormButtons'
 
 const HeroForm = () => {
   const dispatch = useDispatch()
@@ -73,14 +73,8 @@ const HeroForm = () => {
           placeholder="Origem"
         />
         <span className="font-semibold pt-5 text-marvel-error">{methods.formState.errors.origins?.message}</span>
-        {
-          editMode === true ? (
-            <Button type="submit" text="Salvar" color="blue" />
-          )
-          : (
-            <Button type="submit" text="Criar Herói" color="red" />
-          )
-        }
+
+        <FormButtons editMode={editMode} />
       </form>
     </FormProvider>
 
