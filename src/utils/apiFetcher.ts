@@ -1,19 +1,19 @@
 import axios from "axios"
-import { HeroRequestDto, HeroResponseDto } from "../dto/HeroDto"
+import { HeroDto } from "../dto/HeroDto"
 
 const baseUrl = '/api/'
 const heroesUrl = `${baseUrl}/heroes/`
 
 export default {
-  async getAll(): Promise<HeroResponseDto[]> {
+  async getAll(): Promise<HeroDto[]> {
     const response = await axios.get(heroesUrl)
     return response.data
   },
-  async insertOne(hero: HeroRequestDto): Promise<HeroResponseDto> {
+  async insertOne(hero: HeroDto): Promise<HeroDto> {
     const response = await axios.post(heroesUrl, hero)
     return response.data
   },
-  async deleteOne(id: string): Promise<HeroResponseDto> {
+  async deleteOne(id: string): Promise<HeroDto> {
     const response = await axios.delete(`${heroesUrl}${id}`)
     return response.data
   }

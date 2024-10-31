@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { HeroResponseDto } from "../../dto/HeroDto";
+import { HeroDto } from "../../dto/HeroDto";
 
 interface HeroesState {
-  list: HeroResponseDto[]
+  list: HeroDto[]
 }
 
 const heroesInitialState: HeroesState = {
@@ -13,13 +13,13 @@ const heroesSlice = createSlice({
   name: "heroes",
   initialState: heroesInitialState,
   reducers: {
-    addMany: (state, action: { payload: HeroResponseDto[]}) => {
+    addMany: (state, action: { payload: HeroDto[]}) => {
       state.list.push(...action.payload)
     },
-    addOne: (state, action: { payload: HeroResponseDto}) => {
+    addOne: (state, action: { payload: HeroDto}) => {
       state.list.push(action.payload)
     },
-    deleteOne: (state, action: { payload: HeroResponseDto }) => {
+    deleteOne: (state, action: { payload: HeroDto }) => {
       const index = state.list.findIndex(hero => {
         return hero.id === action.payload.id
       })

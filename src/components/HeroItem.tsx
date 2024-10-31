@@ -1,11 +1,11 @@
-import { HeroResponseDto } from "../dto/HeroDto"
+import { HeroDto } from "../dto/HeroDto"
 import apiFetcher from "../utils/apiFetcher"
 import Button from "./Button"
 import { useDispatch } from "react-redux"
 import { deleteOne } from "../features/heroes/heroesSlice"
 
 interface PropTypes {
-  hero: HeroResponseDto
+  hero: HeroDto
 }
 const HeroItem = ({ hero }: PropTypes) => {
   const dispatch = useDispatch()

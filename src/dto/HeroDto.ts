@@ -1,7 +1,12 @@
-import { ArrayMaxSize, ArrayMinSize, ArrayNotEmpty, IsNotEmpty, IsString, MinLength } from "class-validator";
+import { ArrayMaxSize, ArrayMinSize, ArrayNotEmpty, IsNotEmpty, IsOptional, IsString, MinLength } from "class-validator";
 import HeroInterface from "../interfaces/hero.interface";
 
-class HeroRequestDto {
+class HeroDto {
+  @IsString()
+  @IsNotEmpty()
+  @IsOptional()
+  id: string
+
   @MinLength(5, { message: 'Nome deve conter pelo menos 5 caracteres '})
   @IsNotEmpty({ message: 'Todo herói precisa de um nome!' })
   name: string
@@ -16,10 +21,4 @@ class HeroRequestDto {
   origins: string
 }
 
-class HeroResponseDto extends HeroRequestDto {
-  @IsString()
-  @IsNotEmpty()
-  id: string
-}
-
-export { HeroRequestDto, HeroResponseDto }
+export { HeroDto }
