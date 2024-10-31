@@ -11,6 +11,8 @@ export default {
     colors: {
       "marvel-accent-red": "#e62429",
       "marvel-accent-red-hover": "#9f0013",
+      "marvel-accent-blue": "#056efe",
+      "marvel-accent-blue-hover": "#004ae8",
       "marvel-bg": '#202020',
       "marvel-input": '#1E1E1E',
       "marvel-widget-bg": '#3A3A3A',
