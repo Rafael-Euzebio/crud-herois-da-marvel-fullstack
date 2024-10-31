@@ -95,5 +95,5 @@ for (const hero in marvelHeroes) {
 
 const abilities: string[] = Array.from(abilitiesSet).sort()
 
-export { abilities }
+export { abilities, marvelHeroes }
 
