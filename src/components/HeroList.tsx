@@ -3,7 +3,7 @@ import apiFetcher from "../utils/apiFetcher"
 import { useSelector } from "react-redux"
 import { RootState } from '../store'
 import { useDispatch } from "react-redux"
-import { add } from "../features/heroes/heroesSlice"
+import { addMany } from "../features/heroes/heroesSlice"
 import HeroItem from "./HeroItem"
 
 const HeroList = () => {
@@ -13,7 +13,7 @@ const HeroList = () => {
   useEffect(() => {
     (async () => {
       const heroesResponse = await apiFetcher.getAll()
-      dispatch(add(heroesResponse))
+      dispatch(addMany(heroesResponse))
     })()
   }, [])
 
