@@ -1,5 +1,13 @@
-const marvelHeroes  = [
-  {
+interface MarvelHero {
+  name: string;
+  abilities: string[];
+}
+
+interface MarvelHeroes {
+  [key: string]: MarvelHero
+}
+const marvelHeroes: MarvelHeroes  = {
+  SpiderMan: {
     name: "Spider-Man",
     abilities: [
       "Agilidade Aprimorada",
@@ -7,19 +15,17 @@ const marvelHeroes  = [
       "Escalar Paredes",
       "Sentido Aranha",
       "Disparar Teia",
-    ],
-    origins: "",
+    ]
   },
-  {
+  IronMan: {
     name: "Iron Man",
     abilities: [
       "Genialidade",
       "Voo",
       "Rajadas Repulsoras",
-    ],
-    origins: "",
+    ]
   },
-  {
+  CaptainAmerica: {
     name: "Capitão América",
     abilities: [
       "Força Aprimorada",
@@ -27,10 +33,9 @@ const marvelHeroes  = [
       "Artes Marciais",
       "Escudo de Vibranium",
       "Genialidade Tática"
-    ],
-    origins: "",
+    ]
   },
-  {
+  Thor: {
     name: "Thor",
     abilities: [
       "Força Aprimorada",
@@ -38,10 +43,9 @@ const marvelHeroes  = [
       "Voo",
       "Encantamento",
       "Longevidade"
-    ],
-    origins: "",
+    ]
   },
-  {
+  Hulk: {
     name: "Hulk",
     abilities: [
       "Força Sobre-Humana",
@@ -49,20 +53,18 @@ const marvelHeroes  = [
       "Cura Regenerativa",
       "Durabilidade Sobre-Humana",
       "Imunidade à Radiação"
-    ],
-    origins: "",
+    ]
   },
-  {
+  BlackWidow: {
     name: "Viúva Negra",
     abilities: [
       "Agilidade Aprimorada",
       "Artes Marciais",
       "Mestre em Espionagem",
       "Mestre em Assassinato"
-    ],
-    origins: "",
+    ]
   },
-  {
+  DoctorStrange: {
     name: "Doutor Estranho",
     abilities: [
       "Domínio da Magia",
@@ -70,10 +72,9 @@ const marvelHeroes  = [
       "Manipulação Temporal",
       "Teletransporte",
       "Viagem Dimensional"
-    ],
-    origins: "",
+    ]
   },
-  {
+  BlackPanther: {
     name: "Pantera Negra",
     abilities: [
       "Força Aprimorada",
@@ -81,15 +82,14 @@ const marvelHeroes  = [
       "Traje de Vibranium",
       "Especialista Tático",
       "Mestre em Armas Brancas",
-    ],
-    origins: "",
+    ]
   },
-];
+}
 
 const abilitiesSet = new Set<string>()
 
-for (const hero of marvelHeroes) {
-  const abilities = hero.abilities;
+for (const hero in marvelHeroes) {
+  const abilities = marvelHeroes[hero].abilities;
   abilities.forEach(ability => abilitiesSet.add(ability));
 }
 
