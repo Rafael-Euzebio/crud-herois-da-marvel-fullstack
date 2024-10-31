@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { classValidatorResolver } from '@hookform/resolvers/class-validator'
 import { abilities } from '../constants/marvelHeroes'
-import { HeroRequestDto } from '../dto/HeroDto'
+import { HeroDto } from '../dto/HeroDto'
 import Button from './Button'
 import apiFetcher from '../utils/apiFetcher'
 import { useDispatch } from 'react-redux'
@@ -11,11 +11,13 @@ import { addOne } from '../features/heroes/heroesSlice'
 const HeroForm = () => {
   const dispatch = useDispatch()
   const resolver = classValidatorResolver(HeroRequestDto)
+  const resolver = classValidatorResolver(HeroDto)
   const {
     register, 
     handleSubmit, 
-    formState: { errors }
-  } = useForm<HeroRequestDto>({ resolver })
+    formState: { errors },
+    reset
+  } = useForm<HeroDto>({ resolver, defaultValues })
 
   const onSubmit = handleSubmit((formData) => {
     apiFetcher.insertOne(formData)
