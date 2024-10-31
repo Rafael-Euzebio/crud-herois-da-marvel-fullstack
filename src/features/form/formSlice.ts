@@ -3,12 +3,7 @@ import { HeroDto } from "../../dto/HeroDto";
 
 interface FormState {
   editMode: true | false
-  editValues: {
-    id?: string
-    name: string
-    abilities: string[]
-    origins: string
-  }
+  editValues: HeroDto
 }
 
 const formInitialState: FormState = {
