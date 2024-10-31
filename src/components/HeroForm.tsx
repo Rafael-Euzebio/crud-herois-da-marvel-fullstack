@@ -6,11 +6,21 @@ import { HeroDto } from '../dto/HeroDto'
 import Button from './Button'
 import apiFetcher from '../utils/apiFetcher'
 import { useDispatch } from 'react-redux'
-import { addOne } from '../features/heroes/heroesSlice'
+import { addOne, updateOne } from '../features/heroes/heroesSlice'
+import { useSelector } from 'react-redux'
+import { RootState } from '../store'
+import { edit, toggleEdit } from '../features/form/formSlice'
 
 const HeroForm = () => {
   const dispatch = useDispatch()
-  const resolver = classValidatorResolver(HeroRequestDto)
+  const { editValues, editMode } = useSelector(( state: RootState ) => state.form)
+  const defaultValues = { 
+    id: '',
+    name: '',
+    abilities: [],
+    origins: '', 
+  }
+
   const resolver = classValidatorResolver(HeroDto)
   const {
     register, 
@@ -20,14 +30,32 @@ const HeroForm = () => {
   } = useForm<HeroDto>({ resolver, defaultValues })
 
   const onSubmit = handleSubmit((formData) => {
-    apiFetcher.insertOne(formData)
-      .then((responseData) => {
-        dispatch(addOne(responseData))
-      }).catch((error) => {
-        console.log(error)
-      })
+    if (editMode) {
+      apiFetcher.updateOne(formData).then((responseData) => {
+        dispatch(updateOne(responseData))
+        dispatch(toggleEdit())
+        reset(defaultValues)
+      }) 
+    } else {
+      apiFetcher.insertOne(formData)
+        .then((responseData) => {
+          dispatch(addOne(responseData))
+          reset(defaultValues)
+        }).catch((error) => {
+          console.log(error)
+        })
+      }
     }
   )
+
+  const cancelEdit = () => {
+    dispatch(edit(defaultValues))
+    dispatch(toggleEdit())
+  }
+
+  useEffect(() => {
+    reset(editValues) 
+  }, [editValues])
 
   const formClasses = 'lg:w-3/5 p-8 bg-marvel-widget-bg rounded-lg'
   const labelClasses = 'font-bold text-marvel-base'
@@ -80,8 +108,17 @@ const HeroForm = () => {
         placeholder="Origem"
       />
       <span className={errorClasses}>{errors.origins?.message}</span>
-
-      <Button type="submit" text="Criar Herói" color="red" />
+      {
+        editMode === true ? (
+          <div className="flex flex-wrap">
+            <Button type="submit" text="Salvar" color="blue" />
+            <Button type="button" text="Cancelar" color="red" onClick={cancelEdit}/>
+          </div>
+        )
+        : (
+          <Button type="submit" text="Criar Herói" color="red" />
+        )
+      }
     </form>
 
   )

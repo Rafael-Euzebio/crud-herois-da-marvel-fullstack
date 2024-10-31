@@ -13,6 +13,10 @@ export default {
     const response = await axios.post(heroesUrl, hero)
     return response.data
   },
+  async updateOne(hero: HeroDto): Promise<HeroDto> {
+    const response = await axios.put(`${heroesUrl}${hero.id}`, hero)
+    return response.data
+  },
   async deleteOne(id: string): Promise<HeroDto> {
     const response = await axios.delete(`${heroesUrl}${id}`)
     return response.data
