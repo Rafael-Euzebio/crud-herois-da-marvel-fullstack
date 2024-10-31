@@ -26,6 +26,7 @@ const HeroItem = ({ hero }: PropTypes) => {
 
   const onEditClick = () => {
     dispatch(edit(hero))
+    window.scrollTo(0, 0)
   }
 
   const onCancelEdit = () => {
