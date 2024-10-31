@@ -33,25 +33,19 @@ const HeroItem = ({ hero }: PropTypes) => {
   }
 
 
-  const listItemClasses = 'bg-marvel-widget-bg mb-2 rounded-lg p-2'
-  const fieldClasses = 'text-marvel-base font-semibold m-1 p-1'
-  const abilitiesWrapperClasses = `flex flex-wrap justify-evenly border border-dashed border-gray-500  p-1`
-  const headerTextClasses = 'text-2xl text-center text-marvel-base font-semibold'
-  const buttonsWrapperClasses = 'flex flex-wrap'
-
   return (
-    <li className={listItemClasses} 
+    <li className="bg-marvel-widget-bg mb-2 rounded-lg p-2" 
       key={hero.id}>
-        <h3 className={headerTextClasses}>{ hero.name }</h3>
-        <fieldset className={abilitiesWrapperClasses}>
-          <legend className={fieldClasses}>Habilidades</legend>
+        <h3 className="text-2xl text-center text-marvel-base font-semibold">{ hero.name }</h3>
+        <fieldset className="flex flex-wrap justify-evenly border border-dashed border-gray-500  p-1">
+          <legend className="text-marvel-base font-semibold m-1 p-1">Habilidades</legend>
           { hero.abilities.map((ability) => {
-            return <span className={fieldClasses}>{ `${ability} `  }</span> 
+            return <span className="text-marvel-base font-semibold m-1 p-1">{ `${ability} `  }</span> 
           })}
         </fieldset>
-        <p className={fieldClasses}>{ hero.origins}</p>
+        <p className="text-marvel-base font-semibold m-1 p-1">{ hero.origins}</p>
 
-        <div className={buttonsWrapperClasses}>
+        <div className="flex flex-wrap">
           <Button 
             type="button" color="blue" 
             text="Editar" onClick={onEditClick}

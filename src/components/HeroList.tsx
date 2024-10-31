@@ -17,9 +17,8 @@ const HeroList = () => {
     })()
   }, [])
 
-  const listClasses = 'flex-1 flex-column m-2 mt-0'
   return (
-    <ul className={listClasses}>
+    <ul className="flex-1 flex-column m-2 mt-0">
       {heroes.map((hero) => {
         return(
           <HeroItem hero={hero}/>
