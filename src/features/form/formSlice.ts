@@ -14,6 +14,7 @@ interface FormState {
 const formInitialState: FormState = {
   editMode: false,
   editValues: {
+    id: '',
     name: '',
     abilities: [],
     origins: ''
@@ -24,16 +25,17 @@ const formSlice = createSlice({
   name: "form",
   initialState: formInitialState,
   reducers: {
-    toggleEdit: (state) => {
-      state.editMode = !state.editMode
-    },
     edit: (state, action: { payload: HeroDto }) => {
       state.editMode = true
       state.editValues = action.payload
+    },
+    cancelEdit: (state) => {
+      state.editMode = false
+      state.editValues = formInitialState.editValues
     }
   }
 })
 
-export const { edit, toggleEdit } = formSlice.actions
+export const { edit, cancelEdit} = formSlice.actions
 export default formSlice.reducer
 export type { FormState }

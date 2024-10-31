@@ -9,7 +9,7 @@ import { useDispatch } from 'react-redux'
 import { addOne, updateOne } from '../features/heroes/heroesSlice'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store'
-import { edit, toggleEdit } from '../features/form/formSlice'
+import { cancelEdit } from '../features/form/formSlice'
 
 const HeroForm = () => {
   const dispatch = useDispatch()
@@ -33,7 +33,7 @@ const HeroForm = () => {
     if (editMode) {
       apiFetcher.updateOne(formData).then((responseData) => {
         dispatch(updateOne(responseData))
-        dispatch(toggleEdit())
+        dispatch(cancelEdit())
         reset(defaultValues)
       }) 
     } else {
@@ -47,11 +47,6 @@ const HeroForm = () => {
       }
     }
   )
-
-  const cancelEdit = () => {
-    dispatch(edit(defaultValues))
-    dispatch(toggleEdit())
-  }
 
   useEffect(() => {
     reset(editValues) 
@@ -110,10 +105,7 @@ const HeroForm = () => {
       <span className={errorClasses}>{errors.origins?.message}</span>
       {
         editMode === true ? (
-          <div className="flex flex-wrap">
-            <Button type="submit" text="Salvar" color="blue" />
-            <Button type="button" text="Cancelar" color="red" onClick={cancelEdit}/>
-          </div>
+          <Button type="submit" text="Salvar" color="blue" />
         )
         : (
           <Button type="submit" text="Criar Herói" color="red" />
