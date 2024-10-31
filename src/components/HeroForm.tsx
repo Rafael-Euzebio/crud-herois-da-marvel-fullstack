@@ -17,10 +17,10 @@ const HeroForm = () => {
     formState: { errors }
   } = useForm<HeroRequestDto>({ resolver })
 
-  const onSubmit = handleSubmit((data) => {
-    apiFetcher.insertOne(data)
-      .then((data) => {
-        dispatch(addOne(data))
+  const onSubmit = handleSubmit((formData) => {
+    apiFetcher.insertOne(formData)
+      .then((responseData) => {
+        dispatch(addOne(responseData))
       }).catch((error) => {
         console.log(error)
       })
