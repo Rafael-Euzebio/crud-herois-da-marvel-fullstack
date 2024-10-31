@@ -3,13 +3,16 @@ import apiFetcher from "../utils/apiFetcher"
 import Button from "./Button"
 import { useDispatch } from "react-redux"
 import { deleteOne } from "../features/heroes/heroesSlice"
-import { edit } from "../features/form/formSlice"
+import { edit, cancelEdit} from "../features/form/formSlice"
+import { useSelector } from "react-redux"
+import { RootState } from "../store"
 
 interface PropTypes {
   hero: HeroDto
 }
 const HeroItem = ({ hero }: PropTypes) => {
   const dispatch = useDispatch()
+  const { editValues, editMode } = useSelector(( state: RootState) => state.form)
 
   const onDeleteClick = () => {
     apiFetcher.deleteOne(hero.id)
@@ -25,10 +28,14 @@ const HeroItem = ({ hero }: PropTypes) => {
     dispatch(edit(hero))
   }
 
+  const onCancelEdit = () => {
+    dispatch(cancelEdit())
+  }
+
 
   const listItemClasses = 'bg-marvel-widget-bg mb-2 rounded-lg p-2'
   const fieldClasses = 'text-marvel-base font-semibold m-1 p-1'
-  const abilitiesWrapperClasses = `flex flex-wrap border border-dashed border-gray-500  p-1`
+  const abilitiesWrapperClasses = `flex flex-wrap justify-evenly border border-dashed border-gray-500  p-1`
   const headerTextClasses = 'text-2xl text-center text-marvel-base font-semibold'
   const buttonsWrapperClasses = 'flex flex-wrap'
 
@@ -49,10 +56,18 @@ const HeroItem = ({ hero }: PropTypes) => {
             type="button" color="blue" 
             text="Editar" onClick={onEditClick}
           />
-          <Button 
-            type="button" color="red" 
-            text="Excluir" onClick={onDeleteClick} 
-          />
+          { editMode && editValues.id === hero.id ? (
+            <Button 
+              type="button" color="red" 
+              text="Cancelar" onClick={onCancelEdit} 
+            />
+          ) : (
+            <Button 
+              type="button" color="red" 
+              text="Excluir" onClick={onDeleteClick} 
+            />
+          )
+          }
         </div>
     </li>
   )
