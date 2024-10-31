@@ -1,11 +1,11 @@
-import { HeroDto } from "../dto/HeroDto"
-import apiFetcher from "../utils/apiFetcher"
-import Button from "./Button"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { cancelEdit, edit } from "../features/form/formSlice"
 import { deleteOne } from "../features/heroes/heroesSlice"
-import { edit, cancelEdit} from "../features/form/formSlice"
-import { useSelector } from "react-redux"
 import { RootState } from "../store"
+
+import apiFetcher from "../utils/apiFetcher"
+import { HeroDto } from "../dto/HeroDto"
+import Button from "./Button"
 
 interface PropTypes {
   hero: HeroDto
