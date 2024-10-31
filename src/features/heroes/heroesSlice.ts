@@ -19,11 +19,12 @@ const heroesSlice = createSlice({
     addOne: (state, action: { payload: HeroDto}) => {
       state.list.push(action.payload)
     },
-    deleteOne: (state, action: { payload: HeroDto }) => {
       const index = state.list.findIndex(hero => {
         return hero.id === action.payload.id
+    deleteOne: (state, action: { payload: HeroDto }) => {
+      state.list = state.list.filter((hero) => {
+        return hero.id !== action.payload.id
       })
-      state.list.splice(index)
     }
   }
 })
