@@ -1,5 +1,4 @@
 import { ArrayMaxSize, ArrayMinSize, ArrayNotEmpty, IsNotEmpty, IsOptional, IsString, MinLength } from "class-validator";
-import HeroInterface from "../interfaces/hero.interface";
 
 class HeroDto {
   @IsString()

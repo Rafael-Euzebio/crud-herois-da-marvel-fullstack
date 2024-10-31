@@ -1,6 +1,4 @@
-import HeroInterface from "../interfaces/hero.interface";
-
-const marvelHeroes: HeroInterface[] = [
+const marvelHeroes  = [
   {
     name: "Spider-Man",
     abilities: [
