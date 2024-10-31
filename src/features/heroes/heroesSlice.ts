@@ -8,16 +8,20 @@ interface HeroesState {
 const heroesInitialState: HeroesState = {
   list: []
 }
+
 const heroesSlice = createSlice({
   name: "heroes",
   initialState: heroesInitialState,
   reducers: {
-    add: (state, action: { payload: HeroResponseDto[]}) => {
+    addMany: (state, action: { payload: HeroResponseDto[]}) => {
       state.list.push(...action.payload)
+    },
+    addOne: (state, action: { payload: HeroResponseDto}) => {
+      state.list.push(action.payload)
     }
   }
 })
 
-export const { add } = heroesSlice.actions
+export const { addMany, addOne } = heroesSlice.actions
 export default heroesSlice.reducer
 export type { HeroesState }
