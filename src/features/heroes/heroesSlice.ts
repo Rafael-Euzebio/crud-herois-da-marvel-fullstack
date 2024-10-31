@@ -19,8 +19,12 @@ const heroesSlice = createSlice({
     addOne: (state, action: { payload: HeroDto}) => {
       state.list.push(action.payload)
     },
+    updateOne: (state, action: { payload: HeroDto}) => {
       const index = state.list.findIndex(hero => {
         return hero.id === action.payload.id
+      })  
+      state.list[index] = action.payload
+    },
     deleteOne: (state, action: { payload: HeroDto }) => {
       state.list = state.list.filter((hero) => {
         return hero.id !== action.payload.id
@@ -29,6 +33,6 @@ const heroesSlice = createSlice({
   }
 })
 
-export const { addMany, addOne, deleteOne } = heroesSlice.actions
+export const { addMany, addOne, updateOne, deleteOne } = heroesSlice.actions
 export default heroesSlice.reducer
 export type { HeroesState }
