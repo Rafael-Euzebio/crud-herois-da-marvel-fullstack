@@ -2,7 +2,6 @@ import { ArrayMaxSize, ArrayMinSize, ArrayNotEmpty, IsNotEmpty, IsOptional, IsSt
 
 class HeroDto {
   @IsString()
-  @IsNotEmpty()
   @IsOptional()
   id: string
 
