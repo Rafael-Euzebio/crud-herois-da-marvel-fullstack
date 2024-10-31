@@ -18,10 +18,16 @@ const heroesSlice = createSlice({
     },
     addOne: (state, action: { payload: HeroResponseDto}) => {
       state.list.push(action.payload)
+    },
+    deleteOne: (state, action: { payload: HeroResponseDto }) => {
+      const index = state.list.findIndex(hero => {
+        return hero.id === action.payload.id
+      })
+      state.list.splice(index)
     }
   }
 })
 
-export const { addMany, addOne } = heroesSlice.actions
+export const { addMany, addOne, deleteOne } = heroesSlice.actions
 export default heroesSlice.reducer
 export type { HeroesState }

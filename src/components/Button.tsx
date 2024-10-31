@@ -2,9 +2,10 @@ interface ButtonProps {
   color: 'red' | 'blue'
   text: string
   type: 'button' | 'submit' | 'reset'
+  onClick?: () => void
 }
 
-const Button = ({ color, text, type }: ButtonProps) => {
+const Button = ({ color, text, type, onClick }: ButtonProps) => {
   const colorVariants = {
     red: 'bg-marvel-accent-red hover:bg-marvel-accent-red-hover',
     blue: 'bg-marvel-accent-blue hover:bg-marvel-accent-blue-hover',
@@ -14,7 +15,7 @@ const Button = ({ color, text, type }: ButtonProps) => {
   const buttonClasses = 'w-full p-3 text-marvel-base font-bold'
   return (
     <div className={buttonWrapperClasses}>
-      <button type={type} className={buttonClasses}>{text}</button>
+      <button type={type} className={buttonClasses} onClick={onClick}>{text}</button>
     </div>
   )
 }
