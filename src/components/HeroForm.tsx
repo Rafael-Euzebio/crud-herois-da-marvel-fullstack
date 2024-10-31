@@ -4,6 +4,7 @@ import { classValidatorResolver } from '@hookform/resolvers/class-validator'
 import { abilities } from '../constants/marvelHeroes'
 import { HeroRequestDto } from '../dto/HeroDto'
 import axios from 'axios'
+import Button from './Button'
 
 const HeroForm = () => {
   const resolver = classValidatorResolver(HeroRequestDto)
@@ -71,9 +72,7 @@ const HeroForm = () => {
       />
       <span className={errorClasses}>{errors.origins?.message}</span>
 
-      <div className={buttonWrapperClasses}>
-        <button type="submit" className={buttonClasses}>Criar Herói</button>
-      </div>
+      <Button type="submit" text="Criar Herói" color="red" />
     </form>
 
   )
