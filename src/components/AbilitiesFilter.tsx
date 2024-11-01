@@ -48,7 +48,7 @@ const AbilitiesFilter = () => {
         <legend className="font-bold text-marvel-base">Habilidades</legend>
 
         <select className="block"onChange={((e) => setHeroFilter(e.target.value) )}>
-          <option defaultValue="">Filtrar Habilidades</option>
+          <option defaultValue="" value="">Filtrar Habilidades</option>
           { Object.keys(marvelHeroes).map((item) => {
             return <option key={marvelHeroes[item].name} value={item}>{marvelHeroes[item].name}</option>
           })}
