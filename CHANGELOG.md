@@ -1,4 +1,10 @@
 # Changelog
+## 2024-10-31
+### [PR-8](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/9)
+- feat: add button to edit hero ([#a79dec7 ](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/a79dec7)) 
+- feat: add button to delete hero on `HeroItem` ([#5ed7436 ](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/5ed7436)) 
+- feat: create and render components `HeroList` and `HeroItem` with data from `heroesSlice` ([#02b4768](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/02b4768)) 
+
 ## 2024-10-29
 ### [PR-8](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/8)
 #### Added
