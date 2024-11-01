@@ -7,12 +7,12 @@ Este desafio faz parte do processo seletivo do projeto Frontend Fusion para a va
 ### Frontend (React + TypeScript)
 
 #### Página Principal:
-- [ ] Exibe a lista de heróis.
+- [x] Exibe a lista de heróis.
     - `HeroList`: Componente que exibe a lista de heróis.
 - [x] Permite a criação de um novo herói.
     - `HeroForm`: Componente para criar e editar heróis.
-- [ ] Permite a atualização de heróis existentes.
-- [ ] Permite a exclusão de heróis.
+- [x] Permite a atualização de heróis existentes.
+- [x] Permite a exclusão de heróis.
     - `HeroItem`: Componente que representa um herói individual com opções de editar e excluir.
 
 ### Backend (Node + NestJS + TypeScript + Banco de Dados Relacional ou Não Relacional)
