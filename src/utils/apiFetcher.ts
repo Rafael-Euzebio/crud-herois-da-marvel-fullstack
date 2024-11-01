@@ -1,8 +1,9 @@
 import axios from "axios"
 import { HeroDto } from "../dto/HeroDto"
+const mode = import.meta.env.MODE 
+const baseUrl = '/api'
+const heroesUrl = (mode === "development") ? `${baseUrl}/heroes/` : '/heroes/'
 
-const baseUrl = '/api/'
-const heroesUrl = `${baseUrl}/heroes/`
 
 export default {
   async getAll(): Promise<HeroDto[]> {
