@@ -17,7 +17,7 @@ const heroesSlice = createSlice({
       state.list.push(...action.payload)
     },
     addOne: (state, action: { payload: HeroDto}) => {
-      state.list.push(action.payload)
+      state.list.unshift(action.payload)
     },
     updateOne: (state, action: { payload: HeroDto}) => {
       const index = state.list.findIndex(hero => {
