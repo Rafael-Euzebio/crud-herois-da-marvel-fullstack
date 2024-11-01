@@ -1,7 +1,7 @@
 {
   "name": "crud-herois-da-marvel-fullstack",
   "private": true,
-  "version": "2024.10.29-frontend",
+  "version": "2024.10.31-frontend",
   "type": "module",
   "scripts": {
     "dev": "vite NODE_ENV=development",
