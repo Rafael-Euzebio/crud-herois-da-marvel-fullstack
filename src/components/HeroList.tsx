@@ -17,15 +17,23 @@ const HeroList = () => {
     })()
   }, [])
 
-  return (
-    <ul className="flex-1 flex-column mt-3 lg:mx-2 lg:mt-0 h-full lg:overflow-y-scroll">
-      {heroes.map((hero) => {
-        return(
-          <HeroItem hero={hero}/>
-        )
-      })}
-    </ul>
-  )
+  if (heroes.length > 0) {
+    return (
+      <ul className="flex-1 flex-column mt-3 lg:mx-2 lg:mt-0 h-full lg:overflow-y-scroll">
+        {heroes.map((hero) => {
+          return(
+            <HeroItem hero={hero}/>
+          )
+        })}
+      </ul>
+    )
+  } else {
+    return ( 
+      <>
+
+      </>
+    )
+  }
 }
 
 export default HeroList
