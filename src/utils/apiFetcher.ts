@@ -1,25 +1,23 @@
 import axios from "axios"
 import { HeroDto } from "../dto/HeroDto"
-const mode = import.meta.env.MODE 
-const baseUrl = '/api'
-const heroesUrl = (mode === "development") ? `${baseUrl}/heroes/` : '/heroes/'
-
+import API_URL from "../constants/api"
+API_URL
 
 export default {
-  async getAll(): Promise<HeroDto[]> {
-    const response = await axios.get(heroesUrl)
+  async getAll(url: string): Promise<HeroDto[]> {
+    const response = await axios.get(url)
     return response.data
   },
   async insertOne(hero: HeroDto): Promise<HeroDto> {
-    const response = await axios.post(heroesUrl, hero)
+    const response = await axios.post(API_URL, hero)
     return response.data
   },
   async updateOne(hero: HeroDto): Promise<HeroDto> {
-    const response = await axios.put(`${heroesUrl}${hero.id}`, hero)
+    const response = await axios.put(`${API_URL}${hero.id}`, hero)
     return response.data
   },
   async deleteOne(id: string): Promise<HeroDto> {
-    const response = await axios.delete(`${heroesUrl}${id}`)
+    const response = await axios.delete(`${API_URL}${id}`)
     return response.data
   }
 }
