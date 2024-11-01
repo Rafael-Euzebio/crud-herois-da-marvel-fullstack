@@ -11,7 +11,7 @@ export class HeroesService {
   constructor(@InjectModel(Hero.name) private heroModel: Model<Hero>) {}
 
   async getAll(): Promise<HeroResponseDto[]> {
-    const users = await this.heroModel.find().exec()
+    const users = await this.heroModel.find().sort({ createdAt: 'desc' }).exec()
     return plainToClass(HeroResponseDto, users)
   }
 
