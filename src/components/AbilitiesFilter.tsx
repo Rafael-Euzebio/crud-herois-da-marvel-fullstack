@@ -13,8 +13,9 @@ const Abilities = ({ visibleAbilities }: AbilitiesInterface) => {
     <div className="flex flex-wrap">
       { abilities.map((ability): ReactNode => {
         return (
-        <div className={`w-full basis-full sm:basis-1/2 p-1 ${visibleAbilities.includes(ability) ? "" : "hidden" }`}>
+        <div key={`${ability}-wrapper`} className={`w-full basis-full sm:basis-1/2 p-1 ${visibleAbilities.includes(ability) ? "" : "hidden" }`}>
           <input 
+            key={`${ability}-checkbox`}
             type="checkbox"
             className={`accent-marvel-accent-red mr-2`}
             id={ability}
@@ -47,9 +48,9 @@ const AbilitiesFilter = () => {
         <legend className="font-bold text-marvel-base">Habilidades</legend>
 
         <select className="block"onChange={((e) => setHeroFilter(e.target.value) )}>
-          <option selected value="" >Filtrar Habilidades</option>
+          <option defaultValue="">Filtrar Habilidades</option>
           { Object.keys(marvelHeroes).map((item) => {
-            return <option value={item}>{marvelHeroes[item].name}</option>
+            return <option key={marvelHeroes[item].name} value={item}>{marvelHeroes[item].name}</option>
           })}
         </select>
         

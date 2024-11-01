@@ -22,7 +22,7 @@ const HeroList = () => {
       <ul className="flex-1 flex-column mt-3 lg:mx-2 lg:mt-0 h-full lg:overflow-y-scroll">
         {heroes.map((hero) => {
           return(
-            <HeroItem hero={hero}/>
+            <HeroItem key={hero.id} hero={hero}/>
           )
         })}
       </ul>

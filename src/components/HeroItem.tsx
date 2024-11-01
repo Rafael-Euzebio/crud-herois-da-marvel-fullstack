@@ -41,7 +41,7 @@ const HeroItem = ({ hero }: PropTypes) => {
         <fieldset className="flex flex-wrap justify-evenly border border-dashed border-gray-500  p-1">
           <legend className="text-marvel-base font-semibold m-1 p-1">Habilidades</legend>
           { hero.abilities.map((ability) => {
-            return <span className="text-marvel-base font-semibold m-1 p-1">{ `${ability} `  }</span> 
+            return <span key={ability} className="text-marvel-base font-semibold m-1 p-1">{ `${ability} `  }</span> 
           })}
         </fieldset>
         <p className="text-marvel-base font-semibold m-1 p-1">{ hero.origins}</p>
