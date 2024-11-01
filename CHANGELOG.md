@@ -1,6 +1,15 @@
 # Changelog
+
+## 2024-11-01
+### [PR-9](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/9)
+- feat: add heroes on top upon insertion ([#e2d7243](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/e2d7243))
+- fix: add value to default option so abilities can be checked ([#01879bc](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/01879bc))
+- feat: return heroes in descending order ([#00b2f11](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/00b2f11))
+- refactor: refactor `HeroList` to fetch data with SWR ([#8824900](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/8824900))
+
+
 ## 2024-10-31
-### [PR-8](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/9)
+### [PR-9](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/pull/9)
 - feat: add button to edit hero ([#a79dec7 ](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/a79dec7)) 
 - feat: add button to delete hero on `HeroItem` ([#5ed7436 ](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/5ed7436)) 
 - feat: create and render components `HeroList` and `HeroItem` with data from `heroesSlice` ([#02b4768](https://github.com/Rafael-Euzebio/crud-herois-da-marvel-fullstack/commit/02b4768)) 
